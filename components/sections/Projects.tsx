@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { Project } from '../../types';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight ,Layers} from 'lucide-react';
 const projects: Project[] = [
   {
     id: 1,
@@ -50,19 +50,38 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 px-6 relative">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Projects</span>
-          </h2>
-          <p className="text-slate-400 text-lg max-w-xl">
-            A selection of recent work delivering real value. Each project represents a unique challenge and solution.
-          </p>
-        </motion.div>
+         {/* Section Header */}
+        <div className="mb-24 md:text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/30 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6"
+          >
+            <Layers className="w-4 h-4" />
+            <span>Portfolio</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+          >
+            Crafting Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Masterpieces</span>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 leading-relaxed"
+          >
+            Each project is a testament to clean code, performance optimization, and user-centric design. Here are some of the highlights from my journey.
+          </motion.p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (

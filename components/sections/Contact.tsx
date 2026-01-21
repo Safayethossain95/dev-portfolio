@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, Copy, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, Github, Linkedin, Copy, Check, ArrowUpRight, Terminal, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [copied, setCopied] = useState<string | null>(null);
@@ -11,103 +11,197 @@ const Contact: React.FC = () => {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const contactLinks = [
-    {
-      label: "GitHub",
-      value: "Safayethossain95",
-      link: "https://github.com/Safayethossain95",
-      icon: Github,
-      color: "hover:text-white"
-    },
-    {
-      label: "LinkedIn",
-      value: "Safayet Hossain",
-      link: "https://www.linkedin.com/in/safayethossain956/",
-      icon: Linkedin,
-      color: "hover:text-blue-400"
-    }
-  ];
-
-  const contactDetails = [
-    {
-      type: "Email",
-      value: "safayet.hossain95@gmail.com",
-      icon: Mail,
-      isCopyable: true
-    },
-    {
-      type: "Phone",
-      value: "+8801742141355",
-      icon: Phone,
-      isCopyable: true
-    }
-  ];
-
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Connect</span>
-          </h2>
-          <p className="text-slate-400 mb-12">
-            Ready to build something amazing? Feel free to reach out for collaborations or just a friendly hello.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-32 px-6 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Social Links */}
+      <div className="max-w-5xl mx-auto relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl flex flex-col justify-center gap-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 text-cyan-400 text-sm font-mono mb-6"
           >
-            <h3 className="text-xl font-bold text-white mb-2">Social Profiles</h3>
-            <div className="flex justify-center gap-6">
-              {contactLinks.map((item) => (
-                <a 
-                  key={item.label}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-4 rounded-xl bg-white/5 border border-white/10 transition-all hover:scale-110 hover:bg-white/10 ${item.color}`}
-                  aria-label={item.label}
-                >
-                  <item.icon className="w-8 h-8" />
-                </a>
-              ))}
-            </div>
+            <Terminal className="w-3 h-3" />
+            <span>contact.init()</span>
           </motion.div>
-
-          {/* Direct Contact */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl flex flex-col justify-center gap-4"
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
           >
-            <h3 className="text-xl font-bold text-white mb-2">Direct Contact</h3>
-            {contactDetails.map((item) => (
-              <div key={item.type} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10 group">
-                <div className="flex items-center gap-3">
-                  <item.icon className="w-5 h-5 text-cyan-400" />
-                  <span className="text-sm md:text-base text-slate-300">{item.value}</span>
+            Let's build something <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">extraordinary</span>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 max-w-xl mx-auto"
+          >
+            Whether you have a question, a project idea, or just want to say hi, I'm always open to discussing new opportunities.
+          </motion.p>
+        </div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            {/* Email Card - Large Span */}
+            <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="md:col-span-2 group relative rounded-3xl bg-slate-900/40 border border-white/10 p-8 overflow-hidden hover:border-white/20 transition-all duration-300"
+            >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div className="flex justify-between items-start mb-8">
+                        <div className="p-3 rounded-2xl bg-cyan-500/20 text-cyan-400">
+                            <Mail className="w-6 h-6" />
+                        </div>
+                        <button
+                            onClick={() => handleCopy('safayet.hossain95@gmail.com', 'email')}
+                            className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/5 hover:bg-white/10"
+                        >
+                            <AnimatePresence mode='wait'>
+                                {copied === 'email' ? (
+                                    <motion.span
+                                        key="check"
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        className="flex items-center gap-2 text-green-400"
+                                    >
+                                        <Check className="w-4 h-4" /> Copied
+                                    </motion.span>
+                                ) : (
+                                    <motion.span
+                                        key="copy"
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        className="flex items-center gap-2"
+                                    >
+                                        <Copy className="w-4 h-4" /> Copy Email
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h3 className="text-slate-400 font-medium mb-1">Drop me a line</h3>
+                        <a href="mailto:safayet.hossain95@gmail.com" className="text-2xl md:text-3xl font-bold text-white hover:text-cyan-400 transition-colors break-all">
+                            safayet.hossain95@gmail.com
+                        </a>
+                    </div>
                 </div>
-                <button
-                  onClick={() => handleCopy(item.value, item.type)}
-                  className="p-2 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
-                  title="Copy to clipboard"
-                >
-                  {copied === item.type ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
-            ))}
-          </motion.div>
+            </motion.div>
+
+            {/* LinkedIn Card */}
+            <motion.a 
+                href="https://www.linkedin.com/in/safayethossain956/"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="group relative rounded-3xl bg-slate-900/40 border border-white/10 p-8 overflow-hidden hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between"
+            >
+                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 
+                 <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-8">
+                        <div className="p-3 rounded-2xl bg-blue-500/20 text-blue-400">
+                            <Linkedin className="w-6 h-6" />
+                        </div>
+                        <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">LinkedIn</h3>
+                    <p className="text-sm text-slate-400 group-hover:text-blue-300 transition-colors">Professional Network</p>
+                 </div>
+            </motion.a>
+
+             {/* Phone Card */}
+             <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group relative rounded-3xl bg-slate-900/40 border border-white/10 p-8 overflow-hidden hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between"
+            >
+                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 
+                 <div className="relative z-10 h-full flex flex-col justify-between">
+                    <div className="flex justify-between items-start mb-6">
+                        <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-400">
+                            <Phone className="w-6 h-6" />
+                        </div>
+                         <button
+                            onClick={() => handleCopy('+8801742141355', 'phone')}
+                            className="text-slate-500 hover:text-white transition-colors"
+                        >
+                             <AnimatePresence mode='wait'>
+                                {copied === 'phone' ? (
+                                    <motion.div key="check" initial={{scale:0}} animate={{scale:1}} exit={{scale:0}}>
+                                        <Check className="w-5 h-5 text-green-400" />
+                                    </motion.div>
+                                ) : (
+                                    <motion.div key="copy" initial={{scale:0}} animate={{scale:1}} exit={{scale:0}}>
+                                        <Copy className="w-5 h-5" />
+                                    </motion.div>
+                                )}
+                             </AnimatePresence>
+                        </button>
+                    </div>
+                    <div>
+                         <h3 className="text-lg font-bold text-white mb-1">Phone</h3>
+                         <p className="text-sm text-slate-400 mb-1">Mon-Fri, 9am-6pm</p>
+                         <p className="text-lg font-mono text-white group-hover:text-purple-300 transition-colors">+880 1742 141 355</p>
+                    </div>
+                 </div>
+            </motion.div>
+
+             {/* GitHub Card - Large Span */}
+             <motion.a 
+                href="https://github.com/Safayethossain95"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="md:col-span-2 group relative rounded-3xl bg-slate-900/40 border border-white/10 p-8 overflow-hidden hover:border-slate-500/30 transition-all duration-300"
+            >
+                 <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 
+                 <div className="relative z-10 flex items-center justify-between">
+                    <div className="flex items-center gap-6">
+                        <div className="p-4 rounded-full bg-slate-800 border border-white/10 text-white group-hover:scale-110 transition-transform">
+                            <Github className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">Safayethossain95</h3>
+                            <p className="text-slate-400">Check out my open source contributions and repositories.</p>
+                        </div>
+                    </div>
+                    <div className="hidden sm:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 text-slate-400 group-hover:bg-white group-hover:text-slate-900 transition-all">
+                        <ArrowUpRight className="w-6 h-6" />
+                    </div>
+                 </div>
+            </motion.a>
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   liveLink: string;
   image?: string;
+  tags?: string[]
 }
 
 export interface SkillCategory {
@@ -25,3 +26,11 @@ export type CodeToken = {
   newLine?: boolean;
   indent?: number;
 };
+export interface Experience {
+  id: number;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  achievements: string[];
+}
