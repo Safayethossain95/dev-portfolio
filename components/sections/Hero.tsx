@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Content */}
-        <div className="space-y-8 z-10 order-2 lg:order-1">
+        <div className="space-y-8 z-10 order-1 lg:order-2">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
               <span>Open to work</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-              Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Scalable</span>, High-Performance Web Experiences
+             <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+              I'm Safayet, and I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Scalable</span> Web Experiences
             </h1>
             
             <p className="text-slate-400 text-lg md:text-xl max-w-lg mt-6">

@@ -36,9 +36,9 @@ const Experience: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-6">
                     <Code2 className="text-cyan-400 w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Full-Stack Capability, Frontend Heart</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Full-Stack Capability, Frontend at Heart</h3>
                 <p className="text-slate-400 leading-relaxed text-lg">
-                  With <span className="text-white font-medium">4 years</span> of experience, I've transitioned from building simple layouts to architecting complex <span className="text-cyan-400">eCommerce builders</span> and scalable UI systems. My deep dive into <span className="text-white font-medium">React (2y)</span> and <span className="text-green-400 font-medium">Vue (1y)</span> allows me to choose the right tool for the job, while my Node.js background ensures I understand the full data lifecycle.
+                  With <span className="text-white font-medium">4 years</span> of experience, I've transitioned from building simple layouts to working on complex <span className="text-cyan-400">SASS eCommerce builder</span> and scalable UI systems. My deep dive into <span className="text-white font-medium">React (2y)</span> and <span className="text-green-400 font-medium">Vue (1y)</span> allows me to choose the right tool for the job, while my Node.js background ensures I understand the full data lifecycle.
                 </p>
              </div>
           </motion.div>
@@ -74,7 +74,7 @@ const Experience: React.FC = () => {
                    System Architecture
                 </h3>
                 <p className="text-slate-400 mb-6">
-                   Built an in-house <span className="text-white">eCommerce Website Builder</span>. Handled complex state, dynamic routing, and component hydration.
+                   Worked on production level <span className="text-white">eCommerce Website Builder</span>. Handled complex state, dynamic routing, and component hydration.
                 </p>
                 {/* Visual approximation of a builder UI */}
                 <div className="w-full h-24 bg-slate-900/80 rounded-lg border border-white/5 p-3 flex gap-3 opacity-80">
@@ -105,17 +105,17 @@ const Experience: React.FC = () => {
               </h3>
               <div className="grid grid-cols-2 gap-4">
                  <div className="p-4 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
-                    <div>
-                        <div className="text-white font-medium">React</div>
-                        <div className="text-xs text-slate-500">Advanced Hooks</div>
-                    </div>
-                 </div>
-                 <div className="p-4 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
                     <div>
                         <div className="text-white font-medium">Vue.js</div>
                         <div className="text-xs text-slate-500">Composition API</div>
+                    </div>
+                 </div>
+                 <div className="p-4 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                    <div>
+                        <div className="text-white font-medium">React</div>
+                        <div className="text-xs text-slate-500">Advanced Hooks</div>
                     </div>
                  </div>
                   <div className="p-4 rounded-xl bg-slate-900/50 border border-white/5 flex items-center gap-3">

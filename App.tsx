@@ -8,6 +8,7 @@ import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import JobExperience from './components/sections/JobExperience';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
@@ -23,7 +24,7 @@ const App: React.FC = () => {
         <Projects />
         <Contact />
       </div>
-
+      <WhatsAppButton />
       <Footer />
     </main>
   );
