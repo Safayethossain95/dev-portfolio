@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
+      // Check for saved theme or default to dark
+      if (localStorage.theme === 'light') {
+        document.documentElement.classList.remove('dark')
+      } else {
+        document.documentElement.classList.add('dark')
+      }
+
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -17,8 +25,6 @@
               mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-              glass: "rgba(255, 255, 255, 0.05)",
-              glassBorder: "rgba(255, 255, 255, 0.1)",
               primary: "#06b6d4", // Cyan 500
               secondary: "#8b5cf6", // Violet 500
             }
@@ -27,34 +33,62 @@
       }
     </script>
     <style>
+      /* Base Transition */
       body {
-        background-color: #0f172a; /* Slate 900 */
-        color: #f8fafc;
-        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
+
+      /* Light Mode Defaults */
+      body {
+        background-color: #f8fafc; /* Slate 50 */
+        color: #0f172a; /* Slate 900 */
+      }
+      
       .glass-panel {
-        background: rgba(15, 23, 42, 0.6);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       }
+      
       .glass-card {
-        background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        background: rgba(255, 255, 255, 0.6);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Dark Mode Overrides */
+      .dark body {
+        background-color: #0f172a; /* Slate 900 */
+        color: #f8fafc;
+      }
+      
+      .dark .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+      }
+      
+      .dark .glass-card {
+        background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       }
+
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a; 
+        background: transparent; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #cbd5e1; 
         border-radius: 4px;
       }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155; 
+      }
       ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; 
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
         background: #475569; 
       }
     </style>
@@ -65,7 +99,10 @@
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.27.5"
+    "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "path": "https://esm.sh/path@^0.12.7"
   }
 }
 </script>

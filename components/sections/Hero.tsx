@@ -5,30 +5,29 @@ import CodeTyper from '../ui/CodeTyper';
 import { CodeToken } from '../../types';
 
 const Hero: React.FC = () => {
-  // Shorter, profile-focused code snippet
- const codeTokens: CodeToken[] = [
-  { text: "const", color: "text-purple-400" },
-  { text: " dev ", color: "text-blue-300" },
-  { text: "= ", color: "text-slate-300" },
-  { text: "{", color: "text-yellow-300", newLine: true },
-
-  { text: "name", color: "text-blue-300", indent: 2 , newLine: true},
-  { text: ": ", color: "text-slate-300" },
-  { text: "'Safayet'", color: "text-green-400" },
-  { text: ",", color: "text-slate-300" },
-
-  { text: "stack", color: "text-blue-300", indent: 2, newLine: true },
-  { text: ": ", color: "text-slate-300" },
-  { text: "['React', 'Vue']", color: "text-green-400" },
-  { text: ",", color: "text-slate-300" },
-
-  { text: "hardWorker", color: "text-blue-300", indent: 2, newLine: true },
-  { text: ": ", color: "text-slate-300" },
-  { text: "true", color: "text-orange-400" },
-
-  { text: "}", color: "text-yellow-300", newLine: true  },
-];
-
+  // Colors adapted for better visibility in both modes
+  const codeTokens: CodeToken[] = [
+   { text: "const", color: "text-purple-400" },
+   { text: " dev ", color: "text-blue-300" },
+   { text: "= ", color: "text-slate-300" },
+   { text: "{", color: "text-yellow-300", newLine: true },
+ 
+   { text: "name", color: "text-blue-300", indent: 2 , newLine: true},
+   { text: ": ", color: "text-slate-300" },
+   { text: "'Safayet'", color: "text-green-400" },
+   { text: ",", color: "text-slate-300" },
+ 
+   { text: "stack", color: "text-blue-300", indent: 2, newLine: true },
+   { text: ": ", color: "text-slate-300" },
+   { text: "['React', 'Vue']", color: "text-green-400" },
+   { text: ",", color: "text-slate-300" },
+ 
+   { text: "hardWorker", color: "text-blue-300", indent: 2, newLine: true },
+   { text: ": ", color: "text-slate-300" },
+   { text: "true", color: "text-orange-400" },
+ 
+   { text: "}", color: "text-yellow-300", newLine: true  },
+ ];
 
   return (
     <section id="home" className="min-h-screen flex items-end pt-0 px-6 lg:px-12 relative overflow-hidden">
@@ -44,20 +43,14 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-              </span>
-              <span>Open to work</span>
-            </div>
+           
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-              I'm Safayet, Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Scalable</span> Web Experiences
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
+              I'm Safayet, Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-400 dark:to-purple-400">Scalable</span> Web Experiences
             </h1>
             
-            <p className="text-slate-400 text-lg md:text-xl max-w-lg mt-6 leading-relaxed">
-              Senior Frontend Engineer specializing in <strong className="text-white">React.js</strong> and <strong className="text-white">Vue.js</strong>. 
+            <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-lg mt-6 leading-relaxed">
+              Senior Frontend Engineer specializing in <strong className="text-slate-900 dark:text-white">React.js</strong> and <strong className="text-slate-900 dark:text-white">Vue.js</strong>. 
               Translating complex designs into pixel-perfect, interactive applications.
             </p>
           </motion.div>
@@ -76,7 +69,7 @@ const Hero: React.FC = () => {
             </a>
             <a 
               href="#contact"
-              className="px-8 py-4 rounded-xl glass-card text-white font-semibold hover:bg-white/10 transition-all hover:scale-[1.02] flex items-center justify-center"
+              className="px-8 py-4 rounded-xl glass-card text-slate-900 dark:text-white font-semibold hover:bg-slate-100/50 dark:hover:bg-white/10 transition-all hover:scale-[1.02] flex items-center justify-center"
             >
               Contact Me
             </a>
@@ -96,10 +89,10 @@ const Hero: React.FC = () => {
           {/* Profile Image */}
           <div className="relative z-10 w-full h-[500px] lg:h-[85vh] flex items-end justify-center">
              <img 
-               src="https://i.postimg.cc/5y0bK7P0/Whats-App-Image-2026-01-26-at-11-38-00-PM-removebg-preview.png" 
-               alt="Safayet Hossain"
-               className="h-full w-auto object-contain object-bottom transition-all duration-500 transform -scale-x-100"
-             />
+  src="https://i.postimg.cc/5y0bK7P0/Whats-App-Image-2026-01-26-at-11-38-00-PM-removebg-preview.png" 
+  alt="Safayet Hossain"
+  className="h-full w-auto object-contain object-bottom transition-all duration-500 -scale-x-100 grayscale dark:grayscale-0 gray-scale-100 dark:gray-scale-0"
+/>
           </div>
 
           {/* Floating Code Card */}
@@ -109,14 +102,14 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="absolute bottom-20 -left-4 lg:-left-12 z-30 w-64 md:w-72"
           >
-            <div className="glass-panel rounded-xl overflow-hidden shadow-2xl shadow-cyan-900/20 border border-white/10 backdrop-blur-md bg-[#0f172a]/80">
-              <div className="bg-white/5 px-4 py-2 flex items-center justify-between border-b border-white/5">
+            <div className="glass-panel rounded-xl overflow-hidden shadow-2xl shadow-cyan-900/20 border border-slate-200 dark:border-white/10 backdrop-blur-md bg-white/80 dark:bg-[#0f172a]/80">
+              <div className="bg-slate-100/50 dark:bg-white/5 px-4 py-2 flex items-center justify-between border-b border-slate-200 dark:border-white/5">
                 <div className="flex space-x-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                 </div>
-                <div className="flex items-center text-[10px] text-slate-400 gap-1">
+                <div className="flex items-center text-[10px] text-slate-500 dark:text-slate-400 gap-1">
                   <Terminal className="w-3 h-3" />
                   <span>Profile.ts</span>
                 </div>
@@ -127,6 +120,7 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
+          
 
         </motion.div>
       </div>

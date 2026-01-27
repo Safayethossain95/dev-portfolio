@@ -12,7 +12,7 @@ import WhatsAppButton from './components/ui/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
-    <main className="relative min-h-screen text-slate-200 selection:bg-cyan-500/30">
+    <main className="relative min-h-screen text-slate-800 dark:text-slate-200 selection:bg-cyan-500/30 transition-colors duration-300">
       <Background />
       <Navbar />
       
@@ -24,6 +24,7 @@ const App: React.FC = () => {
         <Projects />
         <Contact />
       </div>
+
       <WhatsAppButton />
       <Footer />
     </main>

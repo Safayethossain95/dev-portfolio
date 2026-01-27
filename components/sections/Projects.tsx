@@ -52,24 +52,16 @@ const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto">
          {/* Section Header */}
         <div className="mb-24 md:text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/30 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6"
-          >
-            <Layers className="w-4 h-4" />
-            <span>Portfolio</span>
-          </motion.div>
+          
           
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
           >
-            Crafting Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Masterpieces</span>
+            Crafting Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">Masterpieces</span>
           </motion.h2>
           
           <motion.p 
@@ -77,7 +69,7 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-400 leading-relaxed"
+            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
           >
             Each project is a testament to clean code, performance optimization, and user-centric design. Here are some of the highlights from my journey.
           </motion.p>
@@ -98,7 +90,7 @@ const Projects: React.FC = () => {
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative overflow-hidden rounded-2xl aspect-[3/2] bg-slate-900 border border-white/5 shadow-2xl group-hover:shadow-cyan-500/10 transition-shadow duration-500"
+                className="block relative overflow-hidden rounded-2xl aspect-[3/2] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/5 shadow-xl group-hover:shadow-cyan-500/10 transition-shadow duration-500"
               >
                 {/* Image */}
                 <img 
@@ -121,20 +113,20 @@ const Projects: React.FC = () => {
               {/* Content */}
               <div className="space-y-3">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
                     {project.name}
                   </h3>
                   <a 
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="md:hidden text-cyan-400"
+                    className="md:hidden text-cyan-500 dark:text-cyan-400"
                   >
                     <ArrowUpRight className="w-5 h-5" />
                   </a>
                 </div>
                 
-                <p className="text-slate-400 text-sm leading-relaxed line-clamp-2">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
 
@@ -143,7 +135,7 @@ const Projects: React.FC = () => {
                   {project.tags?.map((tag) => (
                     <span 
                       key={tag} 
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-slate-300 border border-white/10 group-hover:border-cyan-500/30 group-hover:text-cyan-300 transition-colors"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 group-hover:border-cyan-500/30 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors"
                     >
                       {tag}
                     </span>

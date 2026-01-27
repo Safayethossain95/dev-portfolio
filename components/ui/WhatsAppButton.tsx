@@ -12,13 +12,13 @@ const WhatsAppButton: React.FC = () => {
       transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.5 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-shadow duration-300 group"
+      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-10 h-10 bg-[#25D366] text-white rounded-full shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-shadow duration-300 group"
       aria-label="Chat on WhatsApp"
     >
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        width="30" 
-        height="30" 
+        width="27" 
+        height="27" 
         viewBox="0 0 24 24" 
         fill="currentColor"
         className="fill-white"

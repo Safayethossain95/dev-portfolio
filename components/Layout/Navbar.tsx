@@ -1,18 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X, Code2, Sun, Moon } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
+    // Initialize theme state from DOM
+    if (document.documentElement.classList.contains('dark')) {
+      setIsDarkMode(true);
+    } else {
+      setIsDarkMode(false);
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+      setIsDarkMode(true);
+    }
+  };
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -23,7 +43,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav 
+   <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'py-4' : 'py-6'
       }`}
@@ -35,11 +55,12 @@ const Navbar: React.FC = () => {
           } flex items-center justify-between`}
         >
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 font-bold text-xl text-white">
-            <div className="p-1.5 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
-              <Code2 className="w-5 h-5 text-white" />
-            </div>
-            <span>Safayet.dev</span>
+          <a href="#home" className="flex items-center gap-2 font-bold text-xl text-slate-900 dark:text-white transition-colors">
+            {
+              isDarkMode ? 
+              <img className="h-10" src="https://i.postimg.cc/bvJzFM0t/Gemini-Generated-Image-drw44ydrw44ydrw4-Picsart-Background-Remover.png" alt="Logo Dark" />
+              :<img className="h-10" src="https://i.postimg.cc/4NJQMb0t/Gemini-Generated-Image-1udcp1udcp1udcp1-Picsart-Background-Remover.png" alt="Logo Light" />
+            }
           </a>
 
           {/* Desktop Nav */}
@@ -48,20 +69,38 @@ const Navbar: React.FC = () => {
               <a 
                 key={link.name} 
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
               >
                 {link.name}
               </a>
             ))}
+            
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-slate-200/50 dark:bg-white/10 text-slate-600 dark:text-slate-300 hover:bg-slate-300/50 dark:hover:bg-white/20 transition-colors focus:outline-none focus:ring-0"
+              aria-label="Toggle Theme"
+            >
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 text-slate-300 hover:text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-slate-200/50 dark:bg-white/10 text-slate-600 dark:text-slate-300"
+            >
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            
+            <button 
+              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -79,7 +118,7 @@ const Navbar: React.FC = () => {
                 <a 
                   key={link.name} 
                   href={link.href}
-                  className="text-lg font-medium text-slate-300 hover:text-cyan-400 text-center py-2 border-b last:border-0"
+                  className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 text-center py-2 border-b border-slate-200 dark:border-white/10 last:border-0"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
